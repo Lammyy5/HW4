@@ -5,6 +5,22 @@ button{
     background-color: purple;
     color: white;
 }
+.head {
+    top: 15%;
+    right: 43%;
+    margin: 0;
+    padding: 0;
+    position:absolute;
+}
+.rules {
+    top: 25%;
+    right: 35%;
+    margin: 0;
+    padding: 0;
+    position:absolute;
+    word-wrap: break-word;
+    text-align: center;
+}
 
 
 .timer {
@@ -24,10 +40,10 @@ left: 0;
 position: absolute;
 }
 
-.button{
+#start{
     margin: 0;
     position: absolute;
-    top: 50%;
+    top: 40%;
     right: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
