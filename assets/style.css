@@ -1,0 +1,36 @@
+*{
+    background-color: white;
+}
+button{ 
+    background-color: purple;
+    color: white;
+}
+
+
+.timer {
+    margin: 0;
+    padding: 0;
+    top: 0;
+    right: 0;
+    text-align: right;
+    position: absolute;
+}
+
+.highscore {
+margin: 0;
+padding: 0;
+top: 0;
+left: 0;
+position: absolute;
+}
+
+.button{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+
