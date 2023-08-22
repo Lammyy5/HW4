@@ -40,7 +40,7 @@ left: 0;
 position: absolute;
 }
 
-#start{
+.start-button{
     margin: 0;
     position: absolute;
     top: 40%;
@@ -49,4 +49,7 @@ position: absolute;
     transform: translateY(-50%);
 }
 
+@media  screen and (min-width: 550px)  {
+    
+}
 
