@@ -1,6 +1,15 @@
 *{
     background-color: white;
 }
+.questions{
+    margin: 0 auto;
+    display: block;
+    top: 50%;
+    right: 50%;
+   text-align: center;
+   justify-content: center;
+
+}
 button{ 
     background-color: purple;
     color: white;
