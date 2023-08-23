@@ -1,4 +1,5 @@
 // elements 
+var message = document.querySelector('.message')
 var questionsEl = document.querySelector('.questions')
 var highScoreEl = document.querySelector('.highscore')
 var timerEl = document.querySelector('.timer')
@@ -22,13 +23,13 @@ function startQuiz() {
 
 }
 function startTimer() {
-console.log('Timer starting')
+
 highscore()
 }
 function Questions() {
    const firstQuestionEl = document.querySelector('.questions')
-   firstQuestion.innerHTML = `<h1>Commonly used data types DO NOT<br></br>
-   include:</h1>
+   firstQuestionEl.innerHTML = `<h2>Commonly used data types DO NOT<br></br>
+   include:</h2>
    <ul>
    <li> <button>${wrongAnswers[0]}</button></li>
    <li><button>${wrongAnswers[1]}</button></li>
@@ -37,8 +38,11 @@ function Questions() {
    </ul>`
 
 questionsEl.appendChild(firstQuestionEl);
+secondQuestion()
+}
 
-const secondQuestionEl = document.querySelector('.questions')
+ 
+function secondQuestionEl(secondQuestion) {document.querySelector('.questions')
    secondQuestion.innerHTML = `<h1>Commonly used data types DO NOT<br></br>
    include:</h1>
    <ul>
@@ -49,8 +53,8 @@ const secondQuestionEl = document.querySelector('.questions')
    </ul>`
 
 questionsEl.appendChild(secondQuestionEl);
-
-const thirdQuestionEl = document.querySelector('.questions')
+}
+function thirdQuestionEl(thirdQuestion) { document.querySelector('.questions')
    thirdQuestion.innerHTML = `<h1>Commonly used data types DO NOT<br></br>
    include:</h1>
    <ul>
@@ -61,8 +65,8 @@ const thirdQuestionEl = document.querySelector('.questions')
    </ul>`
 
 questionsEl.appendChild(thirdQuestionEl);
-
-const fourthQuestionEl = document.querySelector('.questions')
+}
+function fourthQuestionEl(fourthQuestion) {document.querySelector('.questions')
    fourthQuestion.innerHTML = `<h1>Commonly used data types DO NOT<br></br>
    include:</h1>
    <ul>
@@ -73,8 +77,8 @@ const fourthQuestionEl = document.querySelector('.questions')
    </ul>`
 
 questionsEl.appendChild(fourthQuestionEl);
-
-const fifthQuestionEl = document.querySelector('.questions')
+}
+function fifthQuestionEl(fifthQuestion) {document.querySelector('.questions')
    fifthQuestion.innerHTML = `<h1>Commonly used data types DO NOT<br></br>
    include:</h1>
    <ul>
@@ -86,12 +90,12 @@ const fifthQuestionEl = document.querySelector('.questions')
 
 questionsEl.appendChild(fifthQuestionEl);
 }
-function answers(){
-answersEl.addEventListener('click', )
+function answers() { 
+// subtract from time if answer is wrong 
 }
 
 function highscore() {
-    console.log('highscore logged')
+    // take data from time after quiz and save intials and score
 }
 
 
@@ -99,5 +103,5 @@ function highscore() {
 
 // Event listerners
 startButton.addEventListener("click", startQuiz);
-answers.addEventListener('click', )
+answersEl.addEventListener('click', answers)
 wrongAnswers.addEventListener('click',)
