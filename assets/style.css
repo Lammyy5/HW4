@@ -1,7 +1,13 @@
 *{
     background-color: white;
 }
+ul{
+    list-style-type: none;
+    align-content: center;
+}
 .questions{
+    margin: 0;
+    padding: 0;
     margin: 0 auto;
     display: block;
     top: 50%;
@@ -23,7 +29,7 @@ button{
 }
 .rules {
     top: 25%;
-    right: 35%;
+    right: 28%;
     margin: 0;
     padding: 0;
     position:absolute;

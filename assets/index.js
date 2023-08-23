@@ -1,15 +1,16 @@
 // elements 
-var message = document.querySelector('.message')
-var questionsEl = document.querySelector('.questions')
-var highScoreEl = document.querySelector('.highscore')
-var timerEl = document.querySelector('.timer')
-var startButton = document.querySelector('.start-button')
+let message = document.querySelector('.message')
+let questionsEl = document.querySelector('.questions')
+let highScoreEl = document.querySelector('.highscore')
+let timerEl = document.querySelector('.timer')
+let startButton = document.querySelector('.start-button')
 let answersEl = ['alerts','parentheses','all of the above','quotes','console.log']
 let wrongAnswers = ['strings','booleans','numbers','square brackets','numbers and strings'
 ,'other arrays','commas','curly brackets','periods','JavaScript','terminal','for loops'];
 
 
-var timer =0;
+let timer;
+let timerCount;
 
 // functions
 
@@ -18,14 +19,18 @@ var timer =0;
 function startQuiz() {
     console.log('starting quiz');
 
-    startTimer()
+    
     Questions()
-
 }
 function startTimer() {
 
+   timer = setInterval = function() {
+    timerCount--;
+    timerElement.textContent = timerCount;
+    if (timerCount >= 0) {
 highscore()
-}
+    }
+}}
 function Questions() {
    const firstQuestionEl = document.querySelector('.questions')
    firstQuestionEl.innerHTML = `<h2>Commonly used data types DO NOT<br></br>
@@ -42,9 +47,8 @@ secondQuestion()
 }
 
  
-function secondQuestionEl(secondQuestion) {document.querySelector('.questions')
-   secondQuestion.innerHTML = `<h1>Commonly used data types DO NOT<br></br>
-   include:</h1>
+function secondQuestionEl() {document.querySelector('.questions')
+   secondQuestion.innerHTML = `<h1>The condition in an if else statement is enclosed within:___</h1>
    <ul>
    <li> <button>${wrongAnswers[0]}</button></li>
    <li><button>${wrongAnswers[1]}</button></li>
@@ -54,9 +58,8 @@ function secondQuestionEl(secondQuestion) {document.querySelector('.questions')
 
 questionsEl.appendChild(secondQuestionEl);
 }
-function thirdQuestionEl(thirdQuestion) { document.querySelector('.questions')
-   thirdQuestion.innerHTML = `<h1>Commonly used data types DO NOT<br></br>
-   include:</h1>
+function thirdQuestionEl() { document.querySelector('.questions')
+   thirdQuestion.innerHTML = `<h1>Arrays in JavaScript can be used to store:____</h1>
    <ul>
    <li> <button>${wrongAnswers[0]}</button></li>
    <li><button>${wrongAnswers[1]}</button></li>
@@ -66,9 +69,9 @@ function thirdQuestionEl(thirdQuestion) { document.querySelector('.questions')
 
 questionsEl.appendChild(thirdQuestionEl);
 }
-function fourthQuestionEl(fourthQuestion) {document.querySelector('.questions')
-   fourthQuestion.innerHTML = `<h1>Commonly used data types DO NOT<br></br>
-   include:</h1>
+function fourthQuestionEl() {document.querySelector('.questions')
+   fourthQuestion.innerHTML = `<h1>String values must be enclosed within _____ <br>
+   when being assigned to variables</h1>
    <ul>
    <li> <button>${wrongAnswers[0]}</button></li>
    <li><button>${wrongAnswers[1]}</button></li>
@@ -78,9 +81,9 @@ function fourthQuestionEl(fourthQuestion) {document.querySelector('.questions')
 
 questionsEl.appendChild(fourthQuestionEl);
 }
-function fifthQuestionEl(fifthQuestion) {document.querySelector('.questions')
-   fifthQuestion.innerHTML = `<h1>Commonly used data types DO NOT<br></br>
-   include:</h1>
+function fifthQuestionEl() {document.querySelector('.questions')
+   fifthQuestion.innerHTML = `<h1>A very useful duringf development and<br> debugging for 
+   printing content to the debugger is </h1>
    <ul>
    <li> <button>${wrongAnswers[0]}</button></li>
    <li><button>${wrongAnswers[1]}</button></li>
