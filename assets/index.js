@@ -9,7 +9,7 @@ let wrongAnswers = ['strings','booleans','numbers','square brackets','numbers an
 ,'other arrays','commas','curly brackets','periods','JavaScript','terminal','for loops'];
 
 
-let timer;
+let timer = 0;
 let timerCount;
 
 // functions
@@ -18,20 +18,30 @@ let timerCount;
 // Called when Start quiz button is pushed
 function startQuiz() {
     console.log('starting quiz');
+    timer = 75;
 
-    
-    Questions()
+   
+    questions()
 }
 function startTimer() {
 
-   timer = setInterval = function() {
-    timerCount--;
-    timerElement.textContent = timerCount;
-    if (timerCount >= 0) {
+   timer = setInterval(function() {
+      timerCount--;
+      timerElement.textContent = timerCount;
 highscore()
-    }
-}}
-function Questions() {
+
+}
+}
+function answers(){
+   
+message.innerHTML = "correct"
+}
+function questions(){
+firstQuestion()
+}
+
+
+function firstQuestion() {
    const firstQuestionEl = document.querySelector('.questions')
    firstQuestionEl.innerHTML = `<h2>Commonly used data types DO NOT<br></br>
    include:</h2>
@@ -43,11 +53,12 @@ function Questions() {
    </ul>`
 
 questionsEl.appendChild(firstQuestionEl);
-secondQuestion()
+
 }
 
  
-function secondQuestionEl() {document.querySelector('.questions')
+function secondQuestionEl() {
+   const secondQuestion= document.querySelector('.questions')
    secondQuestion.innerHTML = `<h1>The condition in an if else statement is enclosed within:___</h1>
    <ul>
    <li> <button>${wrongAnswers[0]}</button></li>
@@ -58,7 +69,8 @@ function secondQuestionEl() {document.querySelector('.questions')
 
 questionsEl.appendChild(secondQuestionEl);
 }
-function thirdQuestionEl() { document.querySelector('.questions')
+function thirdQuestionEl() { 
+   const thirdQuestion = document.querySelector('.questions')
    thirdQuestion.innerHTML = `<h1>Arrays in JavaScript can be used to store:____</h1>
    <ul>
    <li> <button>${wrongAnswers[0]}</button></li>
@@ -69,7 +81,8 @@ function thirdQuestionEl() { document.querySelector('.questions')
 
 questionsEl.appendChild(thirdQuestionEl);
 }
-function fourthQuestionEl() {document.querySelector('.questions')
+function fourthQuestionEl() {
+   const fourthQuestion = document.querySelector('.questions')
    fourthQuestion.innerHTML = `<h1>String values must be enclosed within _____ <br>
    when being assigned to variables</h1>
    <ul>
@@ -81,7 +94,8 @@ function fourthQuestionEl() {document.querySelector('.questions')
 
 questionsEl.appendChild(fourthQuestionEl);
 }
-function fifthQuestionEl() {document.querySelector('.questions')
+function fifthQuestionEl() {
+   const fifthQuestion = document.querySelector('.questions')
    fifthQuestion.innerHTML = `<h1>A very useful duringf development and<br> debugging for 
    printing content to the debugger is </h1>
    <ul>
@@ -94,11 +108,13 @@ function fifthQuestionEl() {document.querySelector('.questions')
 questionsEl.appendChild(fifthQuestionEl);
 }
 function answers() { 
-// subtract from time if answer is wrong 
+// subtract from time if answer is wrong
+
 }
 
 function highscore() {
     // take data from time after quiz and save intials and score
+    timerEl.textContent = timer;
 }
 
 
@@ -107,4 +123,4 @@ function highscore() {
 // Event listerners
 startButton.addEventListener("click", startQuiz);
 answersEl.addEventListener('click', answers)
-wrongAnswers.addEventListener('click',)
+wrongAnswers.addEventListener('click', highscore)
