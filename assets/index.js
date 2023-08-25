@@ -1,6 +1,6 @@
 // elements 
 let message = document.querySelector('.message')
-let questionsEl = document.querySelector('.questions')
+let questionEl = document.querySelector('.question')
 let highScoreEl = document.querySelector('.highscore')
 let timerEl = document.querySelector('.timer')
 let startButton = document.querySelector('.start-button')
@@ -9,8 +9,8 @@ let wrongAnswers = ['strings','booleans','numbers','square brackets','numbers an
 ,'other arrays','commas','curly brackets','periods','JavaScript','terminal','for loops'];
 
 
-let timer = 0;
-let timerCount;
+let timer = '';
+let timerCount = '';
 
 // functions
 
@@ -33,80 +33,60 @@ highscore()
 }
 }
 function answers(){
-   
 message.innerHTML = "correct"
 }
-function questions(){
-firstQuestion()
-}
+const questions = [
+   {
+ question: 'Commonly used data types DO NOT include:',
+ answers: [
+   {Text: 'strings', correct: false},
+   {Text: 'booleans', correct: false},
+   {Text: 'alerts', correct: true},
+   {Text: 'numbers', correct: false},
+ ]
 
-
-function firstQuestion() {
-   const firstQuestionEl = document.querySelector('.questions')
-   firstQuestionEl.innerHTML = `<h2>Commonly used data types DO NOT<br></br>
-   include:</h2>
-   <ul>
-   <li> <button>${wrongAnswers[0]}</button></li>
-   <li><button>${wrongAnswers[1]}</button></li>
-   <li><button>${answersEl[0]}</button></li>
-   <li><button>${wrongAnswers[2]}</button></li>
-   </ul>`
-
-questionsEl.appendChild(firstQuestionEl);
-
-}
-
- 
-function secondQuestionEl() {
-   const secondQuestion= document.querySelector('.questions')
-   secondQuestion.innerHTML = `<h1>The condition in an if else statement is enclosed within:___</h1>
-   <ul>
-   <li> <button>${wrongAnswers[0]}</button></li>
-   <li><button>${wrongAnswers[1]}</button></li>
-   <li><button>${answersEl[0]}</button></li>
-   <li><button>${wrongAnswers[2]}</button></li>
-   </ul>`
-
-questionsEl.appendChild(secondQuestionEl);
-}
-function thirdQuestionEl() { 
-   const thirdQuestion = document.querySelector('.questions')
-   thirdQuestion.innerHTML = `<h1>Arrays in JavaScript can be used to store:____</h1>
-   <ul>
-   <li> <button>${wrongAnswers[0]}</button></li>
-   <li><button>${wrongAnswers[1]}</button></li>
-   <li><button>${answersEl[0]}</button></li>
-   <li><button>${wrongAnswers[2]}</button></li>
-   </ul>`
-
-questionsEl.appendChild(thirdQuestionEl);
-}
-function fourthQuestionEl() {
-   const fourthQuestion = document.querySelector('.questions')
-   fourthQuestion.innerHTML = `<h1>String values must be enclosed within _____ <br>
-   when being assigned to variables</h1>
-   <ul>
-   <li> <button>${wrongAnswers[0]}</button></li>
-   <li><button>${wrongAnswers[1]}</button></li>
-   <li><button>${answersEl[0]}</button></li>
-   <li><button>${wrongAnswers[2]}</button></li>
-   </ul>`
-
-questionsEl.appendChild(fourthQuestionEl);
-}
-function fifthQuestionEl() {
-   const fifthQuestion = document.querySelector('.questions')
-   fifthQuestion.innerHTML = `<h1>A very useful duringf development and<br> debugging for 
-   printing content to the debugger is </h1>
-   <ul>
-   <li> <button>${wrongAnswers[0]}</button></li>
-   <li><button>${wrongAnswers[1]}</button></li>
-   <li><button>${answersEl[0]}</button></li>
-   <li><button>${wrongAnswers[2]}</button></li>
-   </ul>`
-
-questionsEl.appendChild(fifthQuestionEl);
-}
+},
+{
+   question: 'The condition in an if else statement is enclosed within:___',
+   answers: [
+     {Text: 'parentheses', correct: true},
+     {Text: 'curly brackets', correct: false},
+     {Text: 'numbers and strings', correct: true},
+     {Text: 'square brackets', correct: false},
+   ]
+  
+  },
+  {
+   question: 'Arrays in JavaScript can be used to store:____?',
+   answers: [
+     {Text: 'strings', correct: false},
+     {Text: 'booleans', correct: false},
+     {Text: 'alerts', correct: false},
+     {Text: 'all of the above', correct: true},
+   ]
+  
+  },
+  {
+   question: 'String values must be enclosed within _____ when being assigned to variables<',
+   answers: [
+     {Text: 'curly brackets', correct: false},
+     {Text: 'quotes', correct: true},
+     {Text: 'commas', correct: false},
+     {Text: 'periods', correct: false},
+   ]
+  
+  },
+  {
+   question: 'A very useful duringf development and debugging for printing content to the debugger is:',
+   answers: [
+     {Text: 'console.log', correct: true},
+     {Text: 'terminal', correct: false},
+     {Text: 'for loops', correct: false},
+     {Text: 'JavaScript', correct: false},
+   ]
+  
+  }
+]
 function answers() { 
 // subtract from time if answer is wrong
 
