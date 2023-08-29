@@ -1,48 +1,17 @@
 // elements 
+let head = document.querySelector('.head')
 let message = document.querySelector('.message')
-let question = document.querySelector('.question')
+const question = document.querySelector('.question')
 let highScoreEl = document.querySelector('.highscore')
 let timerEl = document.querySelector('.timer')
 let startButton = document.querySelector('.start-button')
 let answersEl = ['alerts', 'parentheses', 'all of the above', 'quotes', 'console.log']
 let wrongAnswers = ['strings', 'booleans', 'numbers', 'square brackets', 'numbers and strings'
   , 'other arrays', 'commas', 'curly brackets', 'periods', 'JavaScript', 'terminal', 'for loops'];
+let answerButtons = document.getElementsByName('.answer-buttons')
 
-
-let timer = '';
-let timerCount = '';
 let nextQuestionindex = 0;
-// functions
 
-
-// Called when Start quiz button is pushed
-function startQuiz() {
-  console.log('starting quiz');
-  timer = 75;
-nextQuestionindex = 0;
-
-  displayQuestions()
-}
-function startTimer() {
-//  todo
-
-  }
-function displayQuestions() {
- let nextQuestions = questions[nextQuestionindex]
- let questionNumb = nextQuestionindex + 1;
- question.innerHTML = questionNumb + ". " + nextQuestions.question;
-
- nextQuestions.answers.forEach(answer => {
-  const button = document.createElement("button");
-  button.innerHTML = answers.text;
-  button.classList.add('btn');
-  answersButton.appendChild(button);
-
- })
-}
-function Result() {
-  message.innerHTML = "correct"
-}
 const questions = [
   {
     question: 'Commonly used data types DO NOT include:',
@@ -85,7 +54,7 @@ const questions = [
 
   },
   {
-    question: 'A very useful duringf development and debugging for printing content to the debugger is:',
+    question: 'A very useful during development and debugging for printing content to the debugger is:',
     answers: [
       { Text: 'console.log', correct: true },
       { Text: 'terminal', correct: false },
@@ -94,8 +63,44 @@ const questions = [
     ]
 
   }
-]
-function answers() {
+];
+// functions
+
+
+// Called when Start quiz button is pushed
+function startQuiz() {
+  console.log('starting quiz');
+  nextQuestionindex = 0;
+
+  startTimer();
+  
+  
+}
+function startTimer() {
+  let sec = 75;
+  timer = setInterval(() => {
+    timerEl.innerHTML = 'Time:' + sec;
+    sec--;
+  }, 1000);
+  timer.appendChild(timerEl)
+}
+function displayQuestions() {
+  resetState();
+  let nextQuestions = questions[nextQuestionindex]
+  let questionNumb = nextQuestionindex + 1;
+  question.innerHTML = questionNumb + ". " + nextQuestions.question;
+
+  nextQuestions.answers.forEach(answer => {
+    const button = document.createElement('button');
+    button.innerHTML = answer.Text;
+    button.classList.add('btn')
+    
+    answerButtons.appendChild(button);
+  })
+}
+
+
+function answerFunc() {
   // subtract from time if answer is wrong
 
 }
@@ -107,7 +112,10 @@ function highscore() {
 
 
 
-
+function resetState(){
+  startButton.style.display = 'none';
+  head.style.display = 'none';
+}
 // Event listerners
 startButton.addEventListener("click", startQuiz);
-
+startButton.addEventListener('click', displayQuestions)
