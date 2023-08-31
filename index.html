@@ -9,35 +9,33 @@
 </head>
 
 <body>
-    <div class="container">
-       <section>
+    <div class="app">
         
-        <h2 class="highscore">View highscore</h2>
-        <h2 class="timer">time:0</h2>
-       </section>
-       <section>
-        <h1 class="head">Coding quiz Challenge</h1>
-        <h3 class="question">Try to answer the following code-related 
-            questions within the Time<br> 
-            limit. Keep in mind that
-            incorrect answers will penalize your scoretime <br> by ten seconds!</h3>
+
+            <h2 class="highscore">View highscore</h2>
+            <h2 class="timer">time:0</h2>
+        
+    
+            <h1 class="head">Coding quiz Challenge</h1>
+            <h3 id="question">Try to answer the following code-related
+                questions within the Time<br>
+                limit. Keep in mind that
+                incorrect answers will penalize your scoretime <br> by ten seconds!</h3>
             <button class="start-button">
                 Start Quiz
             </button>
-            <div class="answer-butttons">
-            <div class="btn">1</div>
-            <div class="btn">2</div>
-            <div class="btn">3</div>
-            <div class="btn">4</div>
-            <div class="message">
+            <div id="answer-button">
+                <div class="btn"></div>
+                <div class="btn"></div>
+                <div class="btn"></div>
+                <div class="btn"></div>
+                <div class="message">
+                </div>
             </div>
         </section>
-
-
+        <script src="./assets/index.js">
+        </script>
     </div>
-    </div>
-<script src="./assets/index.js">
-</script>
 </body>
 
 </html>
