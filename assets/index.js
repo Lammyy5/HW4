@@ -1,16 +1,16 @@
 // elements 
-let head = document.querySelector('.head')
-let message = document.querySelector('.message')
-let question = document.querySelector('#question')
-let highScoreEl = document.querySelector('.highscore')
-let timerEl = document.querySelector('.timer')
-let startButton = document.querySelector('.start-button');
+let head = document.querySelector('.head');
+let message = document.querySelector('.message');
+let question = document.querySelector('#question');
+let highScoreEl = document.querySelector('.highscore');
+let timerEl = document.querySelector(".timer");
+let startButton = document.querySelector(".start-button");
 
 
 
 const questions = [
   {
-    question: 'Commonly used data types DO NOT include:',
+    question: "Commonly used data types DO NOT include:",
     answers: [
       { Text: 'strings', correct: false },
       { Text: 'booleans', correct: false },
@@ -62,19 +62,20 @@ const questions = [
 ];
 let nextQuestionindex = 0;
 // functions
-const answerButton = document.getElementById("answer-button")
+const answerButton = document.getElementById("answer-button");
 // Called when Start quiz button is pushed
 function startQuiz() {
   nextQuestionindex = 0;
+  
 
   startTimer();
 
 
-}
+};
 function startTimer() {
   sec = 75;
   timer = setInterval(() => {
-    timerEl.innerHTML = 'Time:' + sec;
+    timerEl.innerHTML = "Time:" + sec;
     sec--;
   }, 1000);
   timer.appendChild(timerEl)
@@ -88,7 +89,11 @@ function displayQuestions() {
   nextQuestions.answers.forEach(answer => {
     const button = document.createElement("button");
     button.innerHTML = answer.Text;
-    button.classList.add("btn")
+    button.classList.add("btn");
+    if (answer.correct) {
+      button.dataset.correct = answer.correct
+    }
+    button.addEventListener("click", answerFunc)
 
     answerButton.appendChild(button);
   })
@@ -103,14 +108,18 @@ function answerFunc() {
 function highscore() {
   // take data from time after quiz and save intials and score
   timerEl.textContent = timer;
-}
+};
 
 
 
 function resetState() {
+  nextButton.classList.add("hide")
+  while (answerButton.firstChild){
+    answerButton.removeChild(answerButton.firstChild)
+  }
   startButton.style.display = 'none';
   head.style.display = 'none';
-}
+};
 // Event listerners
 startButton.addEventListener("click", startQuiz);
 startButton.addEventListener('click', displayQuestions);
