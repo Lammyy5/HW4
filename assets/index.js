@@ -73,11 +73,14 @@ function startQuiz() {
 
 };
 function startTimer() {
-  sec = 75;
-  timer = setInterval(() => {
+  sec = 5;
+ let timer = setInterval(function() {
     timerEl.innerHTML = "Time:" + sec;
     sec--;
   }, 1000);
+  if(timer === 0){
+    clearInterval(timer);
+  }
   timer.appendChild(timerEl)
 }
 function displayQuestions() {
