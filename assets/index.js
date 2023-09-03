@@ -3,7 +3,6 @@ let head = document.querySelector('.head');
 let message = document.querySelector('.message');
 let question = document.querySelector('#question');
 let highScoreEl = document.querySelector('.highscore');
-let timerEl = document.querySelector(".timer");
 let startButton = document.querySelector(".start-button");
 
 
@@ -63,10 +62,11 @@ const questions = [
 let nextQuestionindex = 0;
 // functions
 const answerButton = document.getElementById("answer-button");
+const timerEl = document.getElementById("timer");
 // Called when Start quiz button is pushed
 function startQuiz() {
   nextQuestionindex = 0;
-  
+
 
   startTimer();
 
@@ -74,14 +74,10 @@ function startQuiz() {
 };
 function startTimer() {
   sec = 5;
- let timer = setInterval(function() {
+  const timer = setInterval(function () {
     timerEl.innerHTML = "Time:" + sec;
     sec--;
   }, 1000);
-  if(timer === 0){
-    clearInterval(timer);
-  }
-  timer.appendChild(timerEl)
 }
 function displayQuestions() {
   resetState();
@@ -93,31 +89,26 @@ function displayQuestions() {
     const button = document.createElement("button");
     button.innerHTML = answer.Text;
     button.classList.add("btn");
-    if (answer.correct) {
-      button.dataset.correct = answer.correct
+
+    for (var i = 0; i < answer.Text.length; i++) {
+      let userChoice = answer
     }
-    button.addEventListener("click", answerFunc)
 
-    answerButton.appendChild(button);
+
   })
+  answerButton.appendChild(button)
 }
 
 
-function answerFunc() {
-  // subtract from time if answer is wrong
-
-}
 
 function highscore() {
-  // take data from time after quiz and save intials and score
-  timerEl.textContent = timer;
-};
+
+}
 
 
 
 function resetState() {
-  nextButton.classList.add("hide")
-  while (answerButton.firstChild){
+  while (answerButton.firstChild) {
     answerButton.removeChild(answerButton.firstChild)
   }
   startButton.style.display = 'none';
