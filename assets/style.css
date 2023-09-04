@@ -4,14 +4,20 @@
     padding: 1;
 }
 body{
-   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
 }
-ul{
+li{
     list-style-type: none;
     align-content: center;
+   
+    margin: 1;
+    padding: 1;
 }
 #answer-button{
-    display: flex;
+   
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -21,6 +27,7 @@ ul{
     align-items: center;
     justify-content: center;
   }
+
 
 button{ 
     background-color: purple;
@@ -32,9 +39,9 @@ button{
 .head {
     top: 15%;
     right: 43%;
-    margin: 0;
-    padding: 0;
-    position:absolute;
+    margin: 1;
+    padding: 1;
+    
 }
 .rules {
     top: 25%;
@@ -47,7 +54,7 @@ button{
 }
 
 
-.timer {
+#timer {
     margin: 0;
     padding: 0;
     top: 0;
@@ -73,8 +80,8 @@ position: absolute;
     transform: translateY(-50%);
 }
 .btn{
-    bottom: 50%;
-    display: block;
+   
+   
 }
 
 

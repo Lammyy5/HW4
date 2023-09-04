@@ -1,6 +1,5 @@
 // elements 
 let head = document.querySelector('.head');
-let message = document.querySelector('.message');
 let question = document.querySelector('#question');
 let highScoreEl = document.querySelector('.highscore');
 let startButton = document.querySelector(".start-button");
@@ -10,56 +9,63 @@ let startButton = document.querySelector(".start-button");
 const questions = [
   {
     question: "Commonly used data types DO NOT include:",
+    correctAnswer: 'alerts',
     answers: [
-      { Text: 'strings', correct: false },
-      { Text: 'booleans', correct: false },
-      { Text: 'alerts', correct: true },
-      { Text: 'numbers', correct: false },
+      'strings',
+      'booleans',
+      'alerts',
+      'numbers',
     ]
 
   },
   {
     question: 'The condition in an if else statement is enclosed within:___',
+    correctAnswer: 'parentheses',
     answers: [
-      { Text: 'parentheses', correct: true },
-      { Text: 'curly brackets', correct: false },
-      { Text: 'numbers and strings', correct: false },
-      { Text: 'square brackets', correct: false },
+      'parentheses',
+      'curly brackets',
+      'numbers and strings',
+      'square brackets',
     ]
 
   },
   {
     question: 'Arrays in JavaScript can be used to store:____?',
+    correctAnswer: 'all of the above',
     answers: [
-      { Text: 'strings', correct: false },
-      { Text: 'booleans', correct: false },
-      { Text: 'alerts', correct: false },
-      { Text: 'all of the above', correct: true },
+      'strings',
+      'booleans',
+      'alerts',
+      'all of the above',
     ]
 
   },
   {
     question: 'String values must be enclosed within _____ when being assigned to variables<',
+    correctAnswer: 'quotes',
     answers: [
-      { Text: 'curly brackets', correct: false },
-      { Text: 'quotes', correct: true },
-      { Text: 'commas', correct: false },
-      { Text: 'periods', correct: false },
+      'curly brackets',
+      'quotes',
+      'commas',
+      'periods',
     ]
 
   },
   {
     question: 'A very useful during development and debugging for printing content to the debugger is:',
+    correctAnswer: 'console.log',
     answers: [
-      { Text: 'console.log', correct: true },
-      { Text: 'terminal', correct: false },
-      { Text: 'for loops', correct: false },
-      { Text: 'JavaScript', correct: false },
+      'console.log',
+      'terminal',
+      'for loops',
+      'JavaScript',
     ]
 
   }
 ];
 let nextQuestionindex = 0;
+let QI = 0
+let sec = 5;
 // functions
 const answerButton = document.getElementById("answer-button");
 const timerEl = document.getElementById("timer");
@@ -67,53 +73,59 @@ const timerEl = document.getElementById("timer");
 function startQuiz() {
   nextQuestionindex = 0;
 
-
+  displayQuestions();
   startTimer();
 
 
 };
 function startTimer() {
-  sec = 5;
   const timer = setInterval(function () {
-    timerEl.innerHTML = "Time:" + sec;
     sec--;
+    timerEl.innerHTML = "Time:" + sec;
+    if (sec <= 0) {
+      clearInterval(timer);
+      timerEl.innerHTML = "Time's up!"
+    }
   }, 1000);
 }
 function displayQuestions() {
   resetState();
-  let nextQuestions = questions[nextQuestionindex]
-  let questionNumb = nextQuestionindex + 1;
-  question.innerHTML = questionNumb + ". " + nextQuestions.question;
+  for (i = 0; i < questions.length;i++){
+    let quest = questions[QI].question;
+    var userAnswers = questions[QI].answers;
+    question.innerHTML = quest;
+  }
 
-  nextQuestions.answers.forEach(answer => {
+userAnswers.forEach(newBtn => {
     const button = document.createElement("button");
-    button.innerHTML = answer.Text;
+    button.innerHTML = newBtn;
     button.classList.add("btn");
+    button.addEventListener('click', highscore())
+    
+    answerButton.appendChild(button)
+      })
 
-    for (var i = 0; i < answer.Text.length; i++) {
-      let userChoice = answer
-    }
 
+    
+    
+  }
 
-  })
-  answerButton.appendChild(button)
-}
 
 
 
 function highscore() {
-
-}
+  QI++;
+   
+  // todo
+};
 
 
 
 function resetState() {
-  while (answerButton.firstChild) {
-    answerButton.removeChild(answerButton.firstChild)
-  }
+
   startButton.style.display = 'none';
   head.style.display = 'none';
 };
 // Event listerners
 startButton.addEventListener("click", startQuiz);
-startButton.addEventListener('click', displayQuestions);
+
