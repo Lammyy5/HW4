@@ -5,11 +5,11 @@ let head = document.querySelector('.head');
 let question = document.querySelector('#question');
 let highScoreEl = document.querySelector('.highscore');
 let startButton = document.querySelector(".start-button");
+let resetBtn = document.querySelector(".resetBtn");
 let nextQuestionindex = 1;
 let QI = 0;
 let score = 0;
 let sec = 65;
-
 
 const questions = [
   {
@@ -63,9 +63,11 @@ const questions = [
 
 // Called when Start quiz button is pushed
 function startQuiz() {
-  nextQuestionindex = 0;
+  sec = 65;
+  QI = 0;
   score = 0;
- 
+
+
 
   
   startTimer();
@@ -90,106 +92,73 @@ function displayQuestions() {
   let questionNumb = QI + 1;
   question.innerHTML = questionNumb + ". " + nextQuestion.question;
 
-  // for (let i = 0; i < answer.Text.length; i++) {
-  //   const element = answer.Text[i];
-  //    }
-
   nextQuestion.answers.forEach(answer => {
     const button = document.createElement("button");
     button.innerHTML = answer.Text;
     button.classList.add("btn");
     button.setAttribute("style", "display:block;");
-    
 
-   
-    
-
-    
     answerButton.appendChild(button);
     button.addEventListener("click", () => {
       QI++;
-      if (QI < questions.length){
+      if (QI < questions.length) {
         displayQuestions();
+        highscore();
+        console.log(QI)
       }
-      if(answer.correct){
-      highscore();
+      else if (QI === 5) {
+        input()
+      }
     }
+    )
   }
-        // console.log("correct");
-        
-    //   } else {
-    //     console.log("wrong");
-    //   }
-    // })
+  )
+}
+function viewHighScore () {
+}
 
-
-    // if(answer.correct){
-    //   button.dataset.correct= answer.correct;
-    // }
-    // button.addEventListener('click',highscore);
-  )})}
-
-  function resetButton(){
-    
-    // reset quiz
-  }
-// userAnswers.forEach(newBtn => {
-//     const button = document.createElement("button");
-//     button.textContent = newBtn;
-//     button.classList.add("btn");
-  
-function input(){
-  endQuiz();
-  console.log("quiz ended");
-  head.innerHTML = "";
-  question.innerHTML = "";
-  // todo: clear head and questions and add input form for name and itials save to local storage
+function resetButton() {
+  startQuiz();
 }
 
 
+function input() {
+  endQuiz();
+  console.log("quiz ended");
+  head.innerHTML = "Good job! you finished";
+  startButton.innerHTML = `<button>Reset</button>`
+
+
+  question.innerHTML = `Your score is ${score} <br>
+  <form><input type="text" value="intials"</input></form> <button>Enter</button>`;
+
+  resetBtn.addEventListener("click", resetButton);
+  // todo: clear head and questions and add input form for name and itials save to local storage
+}
 
 function highscore() {
-  if(score < 5) {
-  score++;
-  localStorage.setItem("score", score);
-  const scoreData = localStorage.getItem("score",score);
+  if (score <= 5) {
+    score++;
+    console.log("score")
+    localStorage.setItem("score", score);
+    const scoreData = localStorage.getItem("score", score);
 
   }
-
-
-
-  // question.appendChild(scoreData);
   // todo count score and render to page at end of quiz save with input
-  // const selectedBtn = e.target;
-  // const isCorrect = selectedBtn.dataset.correct === "true";
-
-  // Array.from(answerButton.children).forEach(button => {
-  //   if(button.dataset.correct = "true"){
-  //     score++;
-  //     console.log('true')
-  //   }
-  //   button.disabled = true;
-  // });
-  // nextButton.style.display = "block"
-
 };
-
 
 function endQuiz() {
   question.innerHTML = "";
-  head.innerHTML= "";
+  head.innerHTML = "";
   answerButton.innerHTML = "";
   sec = 2;
-
-
 }
 function resetState() {
 
   startButton.style.display = 'none';
-  while(answerButton.firstChild){
+  while (answerButton.firstChild) {
     answerButton.removeChild(answerButton.firstChild);
   }
-  
 };
 // Event listerners
 startButton.addEventListener("click", startQuiz);
