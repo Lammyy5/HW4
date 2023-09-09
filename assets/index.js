@@ -53,7 +53,7 @@ const questions = [
     ]
   }
 ]
-let nextQuestionindex = 0;
+let nextQuestionindex = 1;
 let QI = 0;
 let score = 0;
 let sec = 5;
@@ -96,15 +96,34 @@ function displayQuestions() {
   let questionNumb = QI + 1;
   question.innerHTML = questionNumb + ". " + nextQuestion.question;
 
+  // for (let i = 0; i < answer.Text.length; i++) {
+  //   const element = answer.Text[i];
+  //    }
+
   nextQuestion.answers.forEach(answer => {
     const button = document.createElement("button");
     button.innerHTML = answer.Text;
     button.classList.add("btn");
+    button.setAttribute("style", "display:block;");
+    
+
+   
+    
+
+    
     answerButton.appendChild(button);
+    button.addEventListener("click", () => {
+      QI++;
+      if (QI < questions.length){
+        displayQuestions();
+      }
+    })
+
+
     if(answer.correct){
       button.dataset.correct= answer.correct;
     }
-    button.addEventListener('click',highscore);
+    // button.addEventListener('click',highscore);
   })
   }
 
@@ -117,7 +136,7 @@ function displayQuestions() {
 
 
 
-function highscore(e) {
+function highscore() {
   const selectedBtn = e.target;
   const isCorrect = selectedBtn.dataset.correct === "true";
 
@@ -139,11 +158,11 @@ function buttonFunc(){
   }
 }
 // try with displayQuestions function
-nextButton.addEventListener("click", ()=>{
-  if(QI < questions.length){
-     buttonFunc();
-  }
-})
+// nextButton.addEventListener("click", ()=>{
+//   if(QI < questions.length){
+//      buttonFunc();
+//   }
+// })
 
 
 function endQuiz() {
