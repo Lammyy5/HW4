@@ -131,7 +131,7 @@ function input() {
 
 
   question.innerHTML = `Your score is ${score} <br>
-  <form><input type="text" value="intials"</input></form> <button>Submit</button>`;
+  <form><input type="text" value=""placeholder="Enter intials"</input></form> <button>Submit</button>`;
 
   resetBtn.addEventListener("click", resetButton);
   // todo: clear head and questions and add input form for name and itials save to local storage
