@@ -86,6 +86,8 @@ function startTimer() {
     }
   }, 1000);
 }
+
+
 function displayQuestions() {
   resetState();
   let nextQuestion = questions[QI];
@@ -109,11 +111,9 @@ function displayQuestions() {
       else if (QI === 5) {
         input()
       }
-    }
-    )
-  }
-  )
-}
+    })})}
+
+
 function viewHighScore () {
 }
 
@@ -126,11 +126,12 @@ function input() {
   endQuiz();
   console.log("quiz ended");
   head.innerHTML = "Good job! you finished";
+  startButton.style.display = null;
   startButton.innerHTML = `<button>Reset</button>`
 
 
   question.innerHTML = `Your score is ${score} <br>
-  <form><input type="text" value="intials"</input></form> <button>Enter</button>`;
+  <form><input type="text" value="intials"</input></form> <button>Submit</button>`;
 
   resetBtn.addEventListener("click", resetButton);
   // todo: clear head and questions and add input form for name and itials save to local storage
